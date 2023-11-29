@@ -1,4 +1,4 @@
 #!/usr/bin/python3
-for abc in range(97, 123):
-    if abc != 101 and abc != 113:
-        print("{}".format(chr(abc)), end="")
+for char in range(97, 123):
+    if char != 101 and char != 113:
+        print("{}".format(chr(char)), end="")
