@@ -2,12 +2,11 @@
 
 
 def no_c(my_string):
-	result = ""
-	for i in my_string:
-		if i.lower() != "c":
-			result += i
-	return result
-
-print(no_c("Best School"))
-print(no_c("Chicago"))
-print(no_c("C is fun!"))
+     if(my_string):
+          new_string = ""
+          for i in my_string:
+               if i == "c" or i == "C":
+                    continue
+               else:
+                    new_string += i
+     return (new_string)
