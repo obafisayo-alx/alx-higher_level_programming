@@ -1,48 +1,64 @@
 #!/usr/bin/python3
-"""Rectangle class"""
+"""rectangle class
+
+"""
 
 
 class Rectangle:
-    """create rectangle instances"""
+    """makes rectangle object"""
     def __init__(self, width=0, height=0):
-        """initialzes the instances"""
+        """initializes
+
+        """
         self.width = width
         self.height = height
 
     @property
-    def height(self):
-        """gets height value"""
-        return self.__height
-
-    @property
     def width(self):
-        """gets width"""
+        """gets width
+
+        """
         return self.__width
 
-    @height.setter
-    def height(self, value):
-        """sets height value"""
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
+    @property
+    def height(self):
+        """gets height
+
+        """
+        return self.__height
 
     @width.setter
     def width(self, value):
-        """sets width value"""
+        """sets width
+
+        """
         if not isinstance(value, int):
-            raise TypeError("height must be an integer")
+            raise TypeError('width must be an integer')
         if value < 0:
-            raise ValueError("height must be >= 0")
+            raise ValueError('width must be >= 0')
         self.__width = value
 
+    @height.setter
+    def height(self, value):
+        """sets height
+
+        """
+        if not isinstance(value, int):
+            raise TypeError('height must be an integer')
+        if value < 0:
+            raise ValueError('height must be >= 0')
+        self.__height = value
+
     def area(self):
-        """returns the area"""
-        return self.width * self.height
+        """returns area
+
+        """
+        return self.height * self.width
 
     def perimeter(self):
-        """returns the perimeter"""
-        if self.width == 0 and self.width == 0:
+        """ returns perimeter
+
+        """
+        if self.height == 0 or self.width == 0:
             return 0
-        return (self.width + self.height) * 2
+        return (self.height * 2) + (self.width * 2)
