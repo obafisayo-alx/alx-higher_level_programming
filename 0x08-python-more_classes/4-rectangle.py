@@ -71,10 +71,10 @@ class Rectangle:
         """
         if not self.perimeter:
             return ""
-        return('\n'.join('#' * self.width for x in range(self.height)))
+        return ('\n'.join('#' * self.width for x in range(self.height)))
 
     def __repr__(self):
         """modifies repr object
 
         """
-        return("Rectangle({}, {})".format(self.width, self.height))
+        return ("Rectangle({}, {})".format(self.width, self.height))

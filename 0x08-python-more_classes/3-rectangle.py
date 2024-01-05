@@ -71,4 +71,4 @@ class Rectangle:
         """
         if not self.perimeter():
             return ""
-        return('\n'.join('#' * self.width for x in range(self.height)))
+        return ('\n'.join('#' * self.width for x in range(self.height)))
