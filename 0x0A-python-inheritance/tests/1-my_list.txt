@@ -1,0 +1,31 @@
+#1-my_list.txt
+Using 'MyList'
+
+>>> MyList = __import__('1-my_list').MyList
+>>> sub_list = MyList()
+>>> sub_list.print_sorted()
+[]
+>>> sub_list.append(4)
+>>> sub_list.print_sorted()
+[4]
+>>> sub_list.append(3)
+>>> sub_list.append(4)
+>>> sub_list.append(5)
+>>> sub_list.append(-3)
+>>> sub_list.append()
+Traceback (most recent call last):
+TypeError: append() takes exactly one argument (0 given)
+>>> sub_list.print_sorted()
+[-3, 3, 4, 4, 5]
+>>> sub_list = MyList([])
+>>> sub_list.print_sorted()
+[]
+>>> sub_list.append(-4)
+>>> sub_list.append(-5)
+>>> sub_list.append(-6)
+>>> sub_list.append(1000)
+>>> sub_list.append(-1000)
+>>> sub_list.append(5000)
+>>> sub_list.append(-1)
+>>> sub_list.print_sorted()
+[-1000, -6, -5, -4, -1, 1000, 5000]
