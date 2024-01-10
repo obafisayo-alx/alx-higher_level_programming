@@ -13,5 +13,5 @@ class Student:
             return self.__dict__.copy()
         else:
             res = {k: v for k, v in filter(lambda x: x[0] in attrs,
-                                            self.__dict__.items())}
+                                           self.__dict__.items())}
             return res
