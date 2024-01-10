@@ -9,6 +9,7 @@ load = __import__('6-load_from_json_file.py').load_from_json_file
 FILENAME = 'add_item.json'
 
 if __name__ == '__main__':
+    """load the file and args then save in a file"""
     try:
         save(load(FILENAME) + argv[1:], FILENAME)
     except (FileNotFoundError, ValueError):
