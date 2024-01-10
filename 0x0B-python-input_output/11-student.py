@@ -20,6 +20,10 @@ class Student:
             return res
 
     def reload_from_json(self, json):
+        """Use serialized version of `Student` instance to update `self`
+
+        Recreate instance from previously serialized `Student` instance.
+        """
         if not isinstance(json, dict):
             raise ValueError("Input must be a dictionary")
         for key, value in json.items():
