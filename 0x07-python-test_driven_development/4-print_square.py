@@ -3,6 +3,7 @@
 
 
 def print_square(size):
+    """document for the function"""
     if size is 0:
         return
     if not isinstance(size, int):

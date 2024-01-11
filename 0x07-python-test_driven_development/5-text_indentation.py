@@ -1,5 +1,9 @@
 #!/usr/bin/python3
+"""add indentation to text"""
+
+
 def text_indentation(text):
+    """document for the function"""
     if not isinstance(text, str):
         raise TypeError("text must be a string")
     beg = 0
