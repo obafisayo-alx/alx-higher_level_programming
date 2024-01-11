@@ -7,7 +7,7 @@ def matrix_divided(matrix, div):
     """
     if (not isinstance(matrix, list) or not len(matrix) or
        0 in [len(listx) if type(listx) is list else 0 for listx in matrix] or
-       any(False in x for x in  [[isinstance(ele, (int, float)) for ele in row]
+       any(False in x for x in [[isinstance(ele, (int, float)) for ele in row]
                                 for row in matrix])):
         raise TypeError(
             'matrix must be a matrix (list of lists) of integers/floats')
