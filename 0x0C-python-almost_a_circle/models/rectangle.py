@@ -14,6 +14,11 @@ class Rectangle(Base):
             x (int): width offset for drawing rectangle
             y (int): height offset for drawing rectangle
             id: identifier for instance. If None, then object count
+
+        Raise:
+            TypeError: If `width`, `height`, `x`, or `y` are not ints.
+            ValueError: If `width` or `height` are <= 0, or `x` or `y`
+                are < 0.
         """
         super().__init__(id=id)
         self.width = width
@@ -21,62 +26,77 @@ class Rectangle(Base):
         self.x = x
         self.y = y
 
-        @property
-        def width(self):
-            """width property getter method
-            Returns: value assigned with width
-            """
-            return self.__width
-        
-        @width.setter
-        def width(self, value):
-            """width setter method
-            Args:
-                value (int): value to set the width value to
-            """
-            self.__width = value
+    @property
+    def width(self):
+        """Getter/setter for width property.
 
-        @property
-        def height(self):
-            """height property getter method
-            Returns: value assigned with height
-            """
-            return self.__height
-        
-        @height.setter
-        def height(self, value):
-            """height setter method
-            Args:
-                value (int): value to set the height value to
-            """
-            self.__height = value
+        Raises:
+            TypeError: If `width` is not an int.
+            ValueError: If `width` is <= 0.
 
-        @property
-        def x(self):
-            """x property getter method
-            Returns: value assigned with x
-            """
-            return self.__x
-        
-        @x.setter
-        def x(self, value):
-            """x setter method
-            Args:
-                value (int): value to set the x value to
-            """
-            self.__x = value
+        Returns: value associated with `width`
+        """
+        return self.__width
 
-        @property
-        def y(self):
-            """y property getter method
-            Returns: value assigned with y
-            """
-            return self.__y
-        
-        @y.setter
-        def y(self, value):
-            """y setter method
-            Args:
-                value (int): value to set the y value to
-            """
-            self.__y = value
+    @width.setter
+    def width(self, value):
+        """Setter for `width`."""
+        if type(value) is not int:
+            raise TypeError("width must be an integer")
+        if value <= 0:
+            raise ValueError("width must be > 0")
+        self.__width = value
+
+    @property
+    def height(self):
+        """Getter/setter for height property.
+
+        Raises:
+            TypeError: If `height` is not an int.
+            ValueError: If `height` is <= 0.
+
+        Returns: value associated with `height`
+        """
+        return self.__height
+
+    @height.setter
+    def height(self, value):
+        """Setter for `height`."""
+        if type(value) is not int:
+            raise TypeError("height must be an integer")
+        if value <= 0:
+            raise ValueError("height must be > 0")
+        self.__height = value
+
+    @property
+    def x(self):
+        """Getter/setter for x (offset) property.
+
+        Raises:
+            TypeError: If `x` is not an int.
+            ValueError: If `x` is < 0.
+
+        Returns: value associated with `x`
+        """
+        return self.__x
+
+    @x.setter
+    def x(self, value):
+        """Setter for `x` (offset)."""
+        if type(value) is not int:
+            raise TypeError("x must be an integer")
+        if value < 0:
+            raise ValueError("x must be >= 0")
+        self.__x = value
+
+    @property
+    def y(self):
+        """Getter/setter for y (offset) property.
+
+        Raises:
+            TypeError: If `y` is not an int.
+            ValueError: If `y` is < 0.
+
+        Returns: value associated with `y`
+        """
+        return self.__y
