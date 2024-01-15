@@ -1,6 +1,7 @@
-# File: tests/test_calculator.py
+#!/usr/bin/python3
 import unittest
 from calculator import Calculator
+
 
 class TestCalculator(unittest.TestCase):
     def setUp(self):
@@ -25,6 +26,7 @@ class TestCalculator(unittest.TestCase):
     def test_divide_by_zero(self):
         with self.assertRaises(ValueError):
             self.calculator.divide(6, 0)
+
 
 if __name__ == '__main__':
     unittest.main()
