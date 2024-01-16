@@ -53,3 +53,21 @@ class Square(Rectangle):
             self.x, self.y,
             self.size
         )
+
+    def update(self, *args, **kwargs):
+        """Update Square instances with *args and **kwargs.
+        Order of *args is 'id', 'size', 'x', 'y'. **kwargs can be in
+        any order.
+
+        Example:
+            >>> s = Square(1)
+            >>> args = [6]; kwargs = {"size": 4, "y": 3}
+            >>> s.update(*args, **kwargs)
+            >>> print(s)
+            [Square] (6) 0/3 - 4
+        """
+        attrs = ["id", "size", "x", "y"]
+        for attr, arg in zip(attrs, args):
+            setattr(self, attr, arg)
+        for k, v in kwargs.items():
+            setattr(self, k, v)
