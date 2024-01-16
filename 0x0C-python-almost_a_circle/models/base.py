@@ -95,6 +95,7 @@ class Base:
             dictionary = {}
         c.update(**dictionary)
         return c
+
     @classmethod
     def load_from_file(cls):
         """Class method to load file containing json serialized objects.
