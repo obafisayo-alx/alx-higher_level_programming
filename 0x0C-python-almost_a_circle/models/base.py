@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """Module contains a base class to be used by other subclasses"""
+import json
 
 
 class Base:
@@ -19,3 +20,20 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    @staticmethod
+    def to_json_string(list_dictionaries):
+        """Static method to serialize list of dictionary objects into json.
+
+        Args:
+            list_dictionaries (list of dicts): List of dictionaries
+                of attribute, value pairs for serialization into json
+                representation.
+
+        Returns: Json string representation of `list_dictionaries`.
+
+        Raises: Any errors encounterd during serialization.
+        """
+        if not list_dictionaries or len(list_dictionaries) == 0:
+            list_dictionaries = []
+        return json.dumps(list_dictionaries)
