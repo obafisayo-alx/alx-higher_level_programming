@@ -154,24 +154,20 @@ class Rectangle(Base):
             self.__width,
             self.__height
         )
-
-    def update(self, *args, **kwargs):
+    
+    def update(self, *args):
         """Update Rectangle instances with *args and **kwargs.
         Order of *args is 'id', 'size', 'x', 'y'. **kwargs can be in
         any order.
 
         Example:
-            >>> r = Rectangle(2, 2)
-            >>> args = [6]; kwargs = {"height": 4, "y": 3}
-            >>> r.update(*args, **kwargs)
-            >>> print(r)
-            [Rectangle] (6) 0/3 - 6/4
+            >>> r1 = Rectangle(10, 10, 10, 10)
+            >>> print(r1)
+            [Rectangle] (1) 10/10 - 10/10
         """
         attrs = ["id", "width", "height", "x", "y"]
         for attr, arg in zip(attrs, args):
             setattr(self, attr, arg)
-        for k, v in kwargs.items():
-            setattr(self, k, v)
 
     def to_dictionary(self):
         """Return dictionary representation of writable attributes.
