@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Module contains a base class to be used by other subclasses"""
 import json
+import csv
 
 
 class Base:
@@ -106,3 +107,27 @@ class Base:
                 return [cls.create(**d) for d in list_dictionaries]
         except FileNotFoundError:
             return []
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Class method to convert `list_objs` to csv format and save
+        in file with name '<class name>.csv'.
+
+        Args:
+            list_objs (list): list of objects of class from which
+                this method is called.
+
+        Raises: Any error encounterd during conversion to csv.
+        """
+        if not list_objs:
+            list_objs = []
+        with open("{}.csv".format(cls.__name__), 'w') as csvf:
+            if cls.__name__ == "Rectangle":
+                fieldnames = ['id', 'width', 'height', 'x', 'y']
+            elif cls.__name__ == "Square":
+                fieldnames = ['id', 'size', 'x', 'y']
+            else:
+                fieldnames = ['id']
+            writer = csv.DictWriter(csvf, fieldnames=fieldnames)
+            for obj in list_objs:
+                writer.writerow(obj.to_dictionary())
