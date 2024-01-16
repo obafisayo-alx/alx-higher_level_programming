@@ -70,7 +70,7 @@ class Square(Rectangle):
         for attr, arg in zip(attrs, args):
             setattr(self, attr, arg)
         for k, v in kwargs.items():
-            setattr(self, k, v)\
+            setattr(self, k, v)
 
     def to_dictionary(self):
         """Return dictionary representation of writable attributes.
