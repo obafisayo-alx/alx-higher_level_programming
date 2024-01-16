@@ -94,3 +94,15 @@ class Base:
             dictionary = {}
         c.update(**dictionary)
         return c
+    @classmethod
+    def load_from_file(cls):
+        """Class method to load file containing json serialized objects.
+        Attempts to open file named '<class name>.json' and deserialize
+        it. If it does not exist, returns empty list.
+        """
+        try:
+            with open("{:s}.json".format(cls.__name__), 'r') as jf:
+                list_dictionaries = cls.from_json_string(jf.read())
+                return [cls.create(**d) for d in list_dictionaries]
+        except FileNotFoundError:
+            return []
