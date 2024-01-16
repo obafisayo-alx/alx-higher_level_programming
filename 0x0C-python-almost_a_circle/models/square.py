@@ -70,4 +70,15 @@ class Square(Rectangle):
         for attr, arg in zip(attrs, args):
             setattr(self, attr, arg)
         for k, v in kwargs.items():
-            setattr(self, k, v)
+            setattr(self, k, v)\
+
+    def to_dictionary(self):
+        """Return dictionary representation of writable attributes.
+
+        Example:
+            >>> s = Square(1, 2, 3, 4)
+            >>> s.to_dictionary()
+            {"id": 4, "size": 1, "x": 2, "y": 3}
+        """
+        attrs = ["id", "size", "x", "y"]
+        return {k: getattr(self, k) for k in attrs}
