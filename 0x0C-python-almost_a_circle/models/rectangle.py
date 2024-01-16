@@ -173,3 +173,13 @@ class Rectangle(Base):
         for k, v in kwargs.items():
             setattr(self, k, v)
 
+    def to_dictionary(self):
+        """Return dictionary representation of writable attributes.
+
+        Example:
+            >>> r = Rectangle(1, 1, 2, 3, 4)
+            >>> r.to_dictionary()
+            {"id": 4, "width": 1, "height": 1, "x": 2, "y": 3}
+        """
+        attrs = ["id", "width", "height", "x", "y"]
+        return {k: getattr(self, k) for k in attrs}
