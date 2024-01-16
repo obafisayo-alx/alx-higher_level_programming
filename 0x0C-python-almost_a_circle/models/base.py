@@ -54,3 +54,18 @@ class Base:
         with open("{}.json".format(cls.__name__), 'w') as jf:
             jf.write(cls.to_json_string([obj.to_dictionary() for
                                          obj in list_objs]))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Static method to deserialize json string into python objects.
+
+        Args:
+            json_string (str): String representation of objects.
+
+        Returns: Python objects represented by `json_string`.
+
+        Raises: Any errors encountered during serialization.
+        """
+        if json_string == "" or json_string is None:
+            return []
+        return json.loads(json_string)
