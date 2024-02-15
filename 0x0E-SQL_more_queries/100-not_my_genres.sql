@@ -1,9 +1,20 @@
-SELECT DISTINCT tv_genres.name
-FROM tv_genres
-WHERE tv_genres.id NOT IN (
-    SELECT tv_show_genres.genre_id
-    FROM tv_show_genres
-    JOIN tv_shows ON tv_show_genres.tv_show_id = tv_shows.id
-    WHERE tv_shows.title = 'Dexter'
-)
-ORDER BY tv_genres.name ASC;
+-- Lists all genres of the database hbtn_0d_tvshows
+-- not linked to the show Dexter.
+-- Records are sorted by ascending genre name.
+SELECT DISTINCT `name`
+  FROM `tv_genres` AS g
+       INNER JOIN `tv_show_genres` AS s
+       ON g.`id` = s.`genre_id`
+
+       INNER JOIN `tv_shows` AS t
+       ON s.`show_id` = t.`id`
+       WHERE g.`name` NOT IN
+             (SELECT `name`
+                FROM `tv_genres` AS g
+	             INNER JOIN `tv_show_genres` AS s
+		     ON g.`id` = s.`genre_id`
+
+		     INNER JOIN `tv_shows` AS t
+		     ON s.`show_id` = t.`id`
+		     WHERE t.`title` = "Dexter")
+ ORDER BY g.`name`;
