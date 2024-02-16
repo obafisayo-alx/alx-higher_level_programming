@@ -1,1 +1,1 @@
-om the is is sa f aoa ffa f afjajfthe s fj ao fjhng ifhg 
+This sub-folder is for the 0x0E-SQL_more_queries tasks
