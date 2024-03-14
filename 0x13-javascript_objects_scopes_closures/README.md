@@ -54,3 +54,7 @@ $ sudo apt-get install -y nodejs
 ```
 $ sudo npm install semistandard --global
 ```
+
+## Authors
+
+- [@codewithmide](https://www.github.com/codewithmide)
